@@ -1,27 +1,56 @@
 // Create elements within javascript
-const domElements = {
+let domElements = {
     body: document.querySelector('body'),
-    main: document.createElement('div')
+    btn: document.createElement('button'),
+    divNum: 5 * 5
 }
 
-// Append 16 div into container div
-let divNum = 16 * 16;
+function appendGrid(num) {
+    let main = document.createElement('div');
 
-for (let i = 0; i < divNum; i++) {
-    let div = document.createElement('div');
-    // div.textContent = i;
-    domElements.main.appendChild(div);
+    // Append 16 div into container div
+    for (let i = 0; i < num; i++) {
+        let div = document.createElement('div');
+        // div.textContent = i;
+        main.appendChild(div);
+    }
+
+    // Place all in html body
+    main.classList.add('container');
+    domElements.body.appendChild(main);
 }
 
-// Place all in html body
-domElements.main.classList.add('container');
-domElements.body.appendChild(domElements.main);
+function hoverEffect() {
+    // Change color of div when hovered
+    let divColor = document.querySelectorAll('.container div');
 
-// Change color of div when hovered
-let divColor = document.querySelectorAll('.container div');
+    function hoveredDiv(e) {
+        this.classList.add('color');
+        console.log(this);
+    }
 
-function hoveredDiv(e) {
-    this.classList.add('color');
+    divColor.forEach(divColor => divColor.addEventListener('mouseover', hoveredDiv));
 }
 
-divColor.forEach(divColor => divColor.addEventListener('mouseover', hoveredDiv));
+domElements.btn.addEventListener('click', function () {
+    let gridNum = prompt('Enter number from 1-100');
+    domElements.divNum = gridNum * gridNum;
+
+    console.log(domElements.divNum)
+
+    document.querySelector('.container').remove();
+    appendGrid(domElements.divNum);
+    hoverEffect();
+
+});
+
+
+// Add replay button to page 
+domElements.btn.textContent = 'Replay';
+domElements.body.appendChild(domElements.btn);
+
+// Initial load
+appendGrid(domElements.divNum);
+hoverEffect();
+
+

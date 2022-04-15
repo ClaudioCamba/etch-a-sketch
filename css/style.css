@@ -8,6 +8,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .container {
@@ -16,13 +17,13 @@ body {
   align-items: center;
   flex-wrap: wrap;
   border: 1px solid #000;
-  height: 50vw;
-  width: 50vw;
+  /* height: 50vw; */
+  width: 75vw;
 }
 
 .container div {
   flex: 1 1 auto;
-  height: 6.25%;
+  height: 50px;
   border: 1px solid #000;
   width: 6.25%;
 }
