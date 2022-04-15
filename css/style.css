@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid #000;
+  height: 50vw;
+  width: 50vw;
+}
+
+.container div {
+  flex: 1 1 auto;
+  height: 6.25%;
+  border: 1px solid #000;
+  width: 6.25%;
+}
+
+div.color {
+  background-color: orange;
+  border: 1px solid darkorange;
+}
