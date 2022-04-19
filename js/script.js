@@ -2,17 +2,19 @@
 let domElements = {
     body: document.querySelector('body'),
     btn: document.createElement('button'),
-    divNum: 5 * 5
+    divNum: 8
 }
 
 function appendGrid(num) {
     let main = document.createElement('div');
+    num = domElements.divNum * domElements.divNum;
 
     // Append 16 div into container div
     for (let i = 0; i < num; i++) {
         let div = document.createElement('div');
         // div.textContent = i;
         main.appendChild(div);
+        console.log(i)
     }
 
     // Place all in html body
@@ -44,6 +46,16 @@ domElements.btn.addEventListener('click', function () {
 
 });
 
+// Dynamic width for div children
+function dynamicDivWidth() {
+    let parentElem = document.querySelector('.container'),
+        childElem = document.querySelectorAll('.container div');
+
+    for (const child of childElem) {
+        child.style.flexBasis = Math.floor((parentElem.offsetWidth / domElements.divNum) - 2) + 'px'; // calculate the width for each div using input number
+    }
+}
+
 
 // Add replay button to page 
 domElements.btn.textContent = 'Replay';
@@ -52,5 +64,8 @@ domElements.body.appendChild(domElements.btn);
 // Initial load
 appendGrid(domElements.divNum);
 hoverEffect();
+dynamicDivWidth();
+
+
 
 
