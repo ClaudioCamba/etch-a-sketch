@@ -2,15 +2,15 @@
 let domElements = {
     body: document.querySelector('body'),
     btn: document.createElement('button'),
-    divNum: 8
+    divNum: 20
 }
 
 function appendGrid(num) {
     let main = document.createElement('div');
-    num = domElements.divNum * domElements.divNum;
+    gridNum = num * num;
 
     // Append 16 div into container div
-    for (let i = 0; i < num; i++) {
+    for (let i = 0; i < gridNum; i++) {
         let div = document.createElement('div');
         // div.textContent = i;
         main.appendChild(div);
@@ -20,6 +20,8 @@ function appendGrid(num) {
     // Place all in html body
     main.classList.add('container');
     domElements.body.appendChild(main);
+    dynamicDivWidth();
+    hoverEffect();
 }
 
 function hoverEffect() {
@@ -36,7 +38,7 @@ function hoverEffect() {
 
 domElements.btn.addEventListener('click', function () {
     let gridNum = prompt('Enter number from 1-100');
-    domElements.divNum = gridNum * gridNum;
+    domElements.divNum = gridNum;
 
     console.log(domElements.divNum)
 
@@ -52,7 +54,7 @@ function dynamicDivWidth() {
         childElem = document.querySelectorAll('.container div');
 
     for (const child of childElem) {
-        child.style.flexBasis = Math.floor((parentElem.offsetWidth / domElements.divNum) - 2) + 'px'; // calculate the width for each div using input number
+        child.style.flexBasis = Math.floor((parentElem.offsetWidth / domElements.divNum) - 1) + 'px'; // calculate the width for each div using input number
     }
 }
 
@@ -63,9 +65,9 @@ domElements.body.appendChild(domElements.btn);
 
 // Initial load
 appendGrid(domElements.divNum);
-hoverEffect();
-dynamicDivWidth();
 
 
+
+// Limi
 
 
