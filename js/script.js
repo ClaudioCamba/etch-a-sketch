@@ -31,10 +31,11 @@ function hoverEffect() {
 
     function hoveredDiv(e) {
         if (this.classList.contains('col')) {
-            console.log(this.style.backgroundColor)
+            this.style.backgroundColor = tenPercentDark(this.style.backgroundColor);
         } else {
-            this.classList.add('col');
             this.style.backgroundColor = randomColor();
+            this.classList.add('col');
+
         }
     }
 
@@ -87,13 +88,23 @@ function randomColor() {
     return rgb.color();
 }
 
+// Make grid 10% darker
+function tenPercentDark(rgb) {
+    rgb = rgb.slice(rgb.indexOf("(") + 1, rgb.indexOf(")")).split(',');
+    for (var i = 0; i < rgb.length; i++) {
+        let checkIfMinus = parseFloat(rgb[i]) - 25.5;
+        if (checkIfMinus < 0) {
+            rgb[i] = 0;
+        } else {
+            rgb[i] = Math.floor(parseFloat(rgb[i]) - 25.5);
+        }
+    }
+    return 'rgb(' + rgb.join(',') + ')';
+}
+
 // Add replay button to page 
 domElements.btn.textContent = 'Replay';
 domElements.body.appendChild(domElements.btn);
 
 // Initial load
 appendGrid(domElements.divNum);
-
-
-
-
