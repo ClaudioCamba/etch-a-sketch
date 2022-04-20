@@ -9,6 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: lightgrey;
 }
 
 .container {
@@ -18,23 +19,26 @@ body {
   flex-wrap: wrap;
   height: 75vw;
   width: 75vw;
-  padding-top: 1px;
-  padding-left: 1px;
-  background-color: #000;
+  /* padding-top: 1px;
+  padding-left: 1px; */
+  /* background-color: #000; */
   margin-bottom: 100px;
 }
 
 .container div {
   flex: 1 1 auto;
-  margin-bottom: 1px;
-  margin-right: 1px;
+  /* margin-bottom: 1px;
+  margin-right: 1px; */
   background-color: #fff;
 }
 
 div.color {
   background-color: orange;
 }
-
+body > button {
+  padding: 5px 10px;
+  margin: 50px 0;
+}
 @media only screen and (max-width: 750px) {
   .container {
     width: 77vw;
